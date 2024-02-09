@@ -7,6 +7,7 @@ use App\Repository\CandidatRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CandidatRepository::class)]
 #[ApiResource(
@@ -20,6 +21,7 @@ class Candidat
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups('toto')]
     private ?int $id = null;
 
     #[ORM\Column(length: 50)]

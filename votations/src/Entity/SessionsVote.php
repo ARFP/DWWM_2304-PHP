@@ -7,33 +7,41 @@ use App\Repository\SessionsVoteRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Embedded;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: SessionsVoteRepository::class)]
 #[ApiResource(
     operations: [
         new Get(),
         new GetCollection()
-    ]
+    ],
+    //normalizationContext: ['groups' => ['toto']]
 )]
 class SessionsVote
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups('toto')]
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Groups('toto')]
     private ?int $nbTours = null;
 
     #[ORM\Column]
+    #[Groups('toto')]
     private ?int $nbRepresentants = null;
 
     #[ORM\Column(length: 10)]
+    #[Groups('toto')]
     private ?string $statut = null;
 
-    #[ORM\OneToMany(targetEntity: SessionsCandidat::class, mappedBy: 'session', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: SessionsCandidat::class, mappedBy: 'session')]
+    #[Groups('toto')]
     private Collection $candidats;
 
     public function __construct()
