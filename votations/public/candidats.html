@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +20,12 @@
     <main id="app">
         <h1 class="center">Élections des représentants</h1>
         <p class="center">{{ nbCandidats }} candidats</p>
-        <section>
-
+        <section id="photos">
+            <article v-for="candidat of listeCandidats">
+                <h2>{{ candidat.nom }} {{ candidat.prenom }}</h2>
+                
+                <img :src="candidat.photo" alt="">
+            </article>
         </section>
         <button type="button" class="voter">Je vote !</button>
     </main>

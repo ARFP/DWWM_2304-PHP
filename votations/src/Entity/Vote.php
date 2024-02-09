@@ -12,7 +12,7 @@ use ApiPlatform\Metadata\Post;
 #[ApiResource(
     operations: [
         new Post(),
-        new GetCollection()
+        new GetCollection(uriTemplate: '/votes')
     ]
 )]
 class Vote

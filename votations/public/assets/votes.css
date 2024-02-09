@@ -64,3 +64,20 @@ footer {
 .voter:hover {
     background-color: #00CC00CC;
 }
+
+#photos{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+article{
+    position: relative;
+}
+
+h2{
+    position:absolute;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 0px 0px 1px ;
+    text-align: center;
+    width: 100%;
+}
