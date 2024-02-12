@@ -1,29 +1,53 @@
-import {Candidat} from './Candidat.js'
+import { VotationsRepository } from './VotationsRepository.js';
 
-const candidatsUrl = 'http://localhost:3000/api/candidats';
 
 const app = {
     data() {
         return {
-            nbCandidats: 10,
-            listeCandidats:[]
+            listeCandidats:[],
+            sessionEnCours: {},
         }
     },
     async mounted() {
-        let rep = await fetch(candidatsUrl);
-        let repForm = await rep.json();
-        console.log(repForm);
-        for(let candidat of repForm){
-            let c = new Candidat(candidat);
-            this.listeCandidats.push(c);
+        
+        let maSession = localStorage.getItem('objSession');
+        this.sessionEnCours = JSON.parse(maSession);
+
+        console.log(this.sessionEnCours);
+
+        for(let unCandidat of this.sessionEnCours.candidats) {
+
+            let monCandidat = unCandidat.split('/');
+
+            let identifiant = monCandidat[monCandidat.length-1];
+
+            monCandidat = await VotationsRepository.getCandidat(identifiant);
+
+            console.log(identifiant, monCandidat);
+
+            this.listeCandidats.push(monCandidat);
         }
-        console.log(this.listeCandidats);
+        
+        this.listeCandidats = this.listeCandidats.sort((a,b) => Math.random() - 0.5);
+        
+        localStorage.setItem('arrayCandidats', JSON.stringify(this.listeCandidats));
     },
     computed: {
-
+        nbCandidats() {
+            return this.listeCandidats.length;
+        }
     },
     methods: {
+        clickBouton(event) {
+            let idCandidat = event.target.dataset.id;
+            let ouiNon = event.target.textContent;
 
+            document.getElementById(idCandidat).classList.add('hide');
+
+            if(ouiNon == 'Oui') {
+                VotationsRepository.addVote();
+            }
+        }
     }
 }
 

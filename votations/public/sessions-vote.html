@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des sessions de votes</title>
+    <link rel="stylesheet" href="./assets/votes.css">
+    <script src="./assets/vue.global.js"></script>
+    <script src="./assets/sessions.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="candidats.html">Liste des candidats</a></li>
+                <li><a href="voter.html">Voter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="app">
+        <div>
+            <label>Identifiant de la session : </label> 
+            <select v-model="sessionSelectionnee">
+                <option v-for="uneSession of listeSessions">{{ uneSession.id }}</option>
+            </select>
+            {{ sessionSelectionnee }}
+            <button @click="afficherSession">Sélectionner</button>
+        </div>
+    </main>
+</body>
+</html>
