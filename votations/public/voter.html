@@ -38,8 +38,8 @@
                         <td>{{ candidat.prenom }}</td>
                         <td>{{ candidat.slogan }}</td>
                         <td :id="candidat.id">
-                            <button :data-id="candidat.id" @click="clickBouton">Oui</button>
-                            <button :data-id="candidat.id" @click="clickBouton">Non</button>
+                            <button :data-id="candidat.id" @click="clickBouton" class="voter2">Oui</button>
+                            <button :data-id="candidat.id" @click="clickBouton" class="voter2">Non</button>
                         </td>
                     </tr>
                 </tbody>

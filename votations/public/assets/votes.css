@@ -134,3 +134,34 @@ article:hover .inner {
 .hide > * {
     display: none;
 }
+
+
+table {
+    border: 1px solid #CCCCCC;
+    width: 1200px;
+}
+
+tr, td, th {
+    margin:0;
+    padding: .5rem;
+}
+
+thead tr:nth-child(odd) {
+    background-color: #CCFFCC;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #CCCCCC;;
+}
+
+.voter2 {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    margin: .5rem 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}
