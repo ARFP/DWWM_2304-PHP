@@ -60,7 +60,7 @@ class VotationsRepository
         let chemin = '/sessions_votes/' + identifiant;
 
         // Récupération des données
-        let json = VotationsRepository.fetchUrl(chemin);
+        let json = await VotationsRepository.fetchUrl(chemin);
 
         console.log('session_vote', json);
 
@@ -82,9 +82,42 @@ class VotationsRepository
         return json;
     }
 
-    static async addVote()
+    static async addVote(idCandidat, idSession)
     {
-        
+        /*
+        {
+        "tour": 1,
+        "session": "/api/sessions_votes/1",
+        "candidat": "/api/candidats/3"
+        }
+        */
+
+        let newVote = {
+            tour: 1,
+            session: "/api/sessions_votes/" + idSession,
+            candidat: "/api/candidats/" + idCandidat
+        }
+
+        let newVoteJson = JSON.stringify(newVote);
+
+        let options = {
+            method: 'POST', // GET, POST, PUT, PATCH, DELETE
+            headers: {
+                "Content-Type": "application/json",
+                accept: "application/json"
+            },
+            body: newVoteJson
+        }
+
+        let response = await fetch('http://localhost:3000/api/votes', options);
+
+        if(response.status == 201) {
+             let json = response.json();
+             return json;
+        }
+       
+        throw new Error("Le vote n'a pas été enregistré !");
+
     }
 
     

@@ -38,14 +38,17 @@ const app = {
         }
     },
     methods: {
-        clickBouton(event) {
+        async clickBouton(event) {
             let idCandidat = event.target.dataset.id;
             let ouiNon = event.target.textContent;
+            let idSession = this.sessionEnCours.id;
 
             document.getElementById(idCandidat).classList.add('hide');
 
             if(ouiNon == 'Oui') {
-                VotationsRepository.addVote();
+                //console.log(idCandidat, idSession);
+                let resultat = await VotationsRepository.addVote(idCandidat, idSession);
+                console.log(resultat);
             }
         }
     }

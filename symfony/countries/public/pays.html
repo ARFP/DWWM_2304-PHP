@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des pays</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="./assets/vue.global.js"></script>
+    <script src="./assets/vuePays.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <h1>Pays</h1>
+    </header>
+    <main id="app">
+        <table>
+            <caption>Liste des pays</caption>
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>CODE</th>
+                    <th>NOM</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="pays of listePays">
+                    <td>
+                        <img :src="'https://flagsapi.com/' + pays.codePays + '/flat/32.png'" :alt="pays.codePays">
+                    </td>
+                    <td>{{ pays.codePays }}</td>
+                    <td>{{ pays.nomPays }}</td>
+                    <td>
+                        <button :data-id="pays.id" @click="ouvrirModal">Détails</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="modal" ref="modal">
+            <div v-if="monPays != null">
+                <button @click="fermerModal">Fermer</button>
+                <img :src="'https://flagsapi.com/' + monPays.codePays + '/flat/64.png'" :alt="monPays.codePays">
+                <h2>{{ monPays.nomPays }}</h2>
+                <p>Code ISO: <span style="font-weight: bold;">{{ monPays.codePays }}</span></p>
+                <h3 style="text-align: left;">{{ monPays.villes.length }} ville(s) enregistrées</h3>
+                <ul>
+                    <li v-for="ville of monPays.villes">{{ ville.nomVille }}</li>
+                </ul>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
