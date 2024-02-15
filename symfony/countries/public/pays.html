@@ -37,17 +37,23 @@
             </tbody>
         </table>
         <div id="modal" ref="modal">
-            <div v-if="monPays != null">
-                <button @click="fermerModal">Fermer</button>
-                <img :src="'https://flagsapi.com/' + monPays.codePays + '/flat/64.png'" :alt="monPays.codePays">
-                <h2>{{ monPays.nomPays }}</h2>
-                <p>Code ISO: <span style="font-weight: bold;">{{ monPays.codePays }}</span></p>
+            <article v-if="monPays != null">
+                <button class="fermer" @click="fermerModal">Fermer</button>
+                <header>
+                    <h2>{{ monPays.nomPays }}</h2>
+                    <img :src="'https://flagsapi.com/' + monPays.codePays + '/flat/64.png'" :alt="monPays.codePays">
+                    <p>Code ISO: <span style="font-weight: bold;">{{ monPays.codePays }}</span></p>
+                </header>
+                <div class="addVille">
+                    <label for="ajouterVille">Ajouter une ville: </label>
+                    <input id="ajouterVille" type="text">
+                    <button>Ajouter</button>
+                </div>
                 <h3 style="text-align: left;">{{ monPays.villes.length }} ville(s) enregistrées</h3>
                 <ul>
                     <li v-for="ville of monPays.villes">{{ ville.nomVille }}</li>
                 </ul>
-            </div>
-            
+            </article>
         </div>
     </main>
     <footer>

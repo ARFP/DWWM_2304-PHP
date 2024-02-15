@@ -15,7 +15,7 @@ body {
     color: #DDDDDD;
 }
 
-header {
+body > header {
     height: 16rem;
     background: url('./countries.png') no-repeat;
     background-size: cover;
@@ -88,6 +88,8 @@ button:hover {
     border-radius: .5rem;
 }
 
+/* MODAL */
+
 #modal {
     display: none;
     position: fixed;
@@ -102,7 +104,7 @@ button:hover {
     text-align: center;
   }
 
-  #modal > div {
+  #modal > article {
     border: 1px solid yellow;
     box-shadow: 0 0 10rem 0 darkgreen;
     width: 50rem;
@@ -114,6 +116,14 @@ button:hover {
     /*overflow-y: scroll;*/
   }
 
+  #modal > article header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF33;
+    padding: .1rem 1rem;
+  }
+
   #modal h2, #modal h3 {
     margin: 0;
     padding: .5rem 1rem;
@@ -123,9 +133,21 @@ button:hover {
     text-align: left;
   }
 
-  #modal button {
+  #modal button.fermer {
     display: block;
     width: 100%;
     background-color: darkred;
     color: white;
+  }
+
+  #modal .addVille {
+    padding: 1rem;
+    text-align: left;
+  }
+
+  #modal input[type="text"] {
+    border: 1px solid lightgreen;
+    color: white;
+    background-color: green;
+    padding: .5rem 1.5rem;
   }
