@@ -17,7 +17,7 @@ const app = {
         }
     },
     methods: {
-        selectCpu(event) {
+       /* selectCpu(event) {
             
             if(parseInt(event.target.value) > 0 ) {
                 this.cpuSelect = this.cpuList.find(x => x.id == event.target.value);
@@ -25,7 +25,7 @@ const app = {
                 this.cpuSelect = null;
             }
             
-        }
+        }*/
     }
 }
 

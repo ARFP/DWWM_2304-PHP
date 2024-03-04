@@ -30,9 +30,9 @@
                 <li>Select a CPU</li>
                 <li>Edit the number of units in stock</li>
             </ol>
-            <select @change="selectCpu">
-                <option value="0">Select a CPU</option>
-                <option v-for="cpu of cpuList" :value="cpu.id">{{ cpu.fullname }}</option>
+            <select v-model="cpuSelect">
+                <option disabled value="null">Select a CPU</option>
+                <option v-for="cpu of cpuList" :value="cpu">{{ cpu.fullname }}</option>
             </select>
             <span v-if="cpuSelect != null">
                 <input type="number" v-model="cpuSelect.stock"> unit(s) in stock

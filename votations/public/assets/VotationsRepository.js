@@ -6,7 +6,7 @@ import { Candidat } from "./Candidat.js";
 class VotationsRepository 
 {
     /** @var {String} apiBaseUrl URL de base de l'api  */
-    static apiBaseUrl = 'http://localhost:3000/api';
+    static apiBaseUrl = '/api';
 
     /**
      * Emet une requête vers l'api et retourne la réponse correspondante
