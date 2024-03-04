@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size:1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #CCFFCC;
+}
+
+main {
+    width: 100rem;
+    max-width: 100%;
+    margin: 1rem auto;
+}
+
+footer {
+    text-align: center;
+}
+
+.menu, .menu > ul {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    display: block;
+    margin: 0 1rem;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #FFFFFF33;
+    color: lightgreen;
+}
+
+.center {
+    text-align: center;
+}
+
+.voter {
+    display: block;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    margin-top: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.voter:hover {
+    background-color: #00CC00CC;
+}
+
+#photos{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+article{
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+
+article h2{
+    margin: 0;
+    padding: 1rem;
+    position:absolute;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 0, 0) 0px 0px 1px ;
+    text-align: center;
+    width: 100%;
+    background: #FFFFFF33;
+}
+article img {
+    width: 100%;
+    height: 100%;
+}
+
+/* FLIPCARDS */
+
+/* conteneur des 2 faces de la cartes. C'est cet élément qui sera retourné au survol de la souris */
+article .inner {
+    position:relative;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+/* affichage de la face arrière au survol de la souris */
+article:hover .inner {
+    transform: rotateY(180deg);
+}
+
+/* styles pour les faces avant et arrière */
+.front, .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+/* Par défaut, la face arrière est retournée */
+.back {
+    transform: rotateY(180deg);
+    background-color: var(--title-bg);
+}
+
+/* FIN FLIPCARDS */
+
+
+.avatar {
+    width: 60px;
+}
+
+.hide > * {
+    display: none;
+}
+
+
+table {
+    border: 1px solid #CCCCCC;
+    width: 1200px;
+}
+
+tr, td, th {
+    margin:0;
+    padding: .5rem;
+}
+
+thead tr:nth-child(odd) {
+    background-color: #CCFFCC;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #CCCCCC;;
+}
+
+.voter2 {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    margin: .5rem 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SessionsVote{% endblock %}
+
+{% block body %}
+    <h1>SessionsVote</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sessions_vote.id }}</td>
+            </tr>
+            <tr>
+                <th>NbTours</th>
+                <td>{{ sessions_vote.nbTours }}</td>
+            </tr>
+            <tr>
+                <th>NbRepresentants</th>
+                <td>{{ sessions_vote.nbRepresentants }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ sessions_vote.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sessions_vote_index') }}">back to list</a>
+
+    <a href="{{ path('app_sessions_vote_edit', {'id': sessions_vote.id}) }}">edit</a>
+
+    {{ include('sessions_vote/_delete_form.html.twig') }}
+{% endblock %}

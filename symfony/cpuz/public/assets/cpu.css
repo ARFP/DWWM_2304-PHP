@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1rem;
+    background-color: #00b9fc33;
+}
+
+.header {
+    background: url('./banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:20rem;
+    margin-bottom: 1rem;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 1rem;
+    color: #00b9fc;
+    background-color: #00000033;
+    display: inline-block;
+    border-bottom-right-radius: 3rem;
+}
+
+main {
+}
+
+.cpus {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+
+.cpu {
+    width: 35rem;
+    border: 1px solid red;
+    background-color: #00000011;
+    color: darkblue;
+    border-bottom-right-radius: 50%;
+}
+
+.cpu h2 {
+    margin: 0;
+    padding: 1rem;
+    color: #0079bc;
+    background-color: #0079bc55;
+}
+
+.cpu ul {
+    list-style: none;
+}
+
+.cpu span {
+    display: inline-block;
+    width: 10rem;
+}
+
+.intel, .amd {
+    background-position-x: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.intel {
+    background-image: url('./intel.svg');
+}
+
+.amd {
+    background-image: url('./amd.svg');
+}
+
+.stock {
+    background-color: #00000011;
+    margin-bottom: 5rem;
+    padding-bottom: 1rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.stock h1 {
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+    color: #00b9fc;
+    background: url('./banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stock ol {
+    margin: 0;
+    padding: 1rem 4rem;
+}
+
+select, input, button {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+button {
+    border: 1px solid red;
+    border-radius: .5rem;
+    min-width: 12rem;
+    cursor: pointer;
+    background-color: #00000011;
+}
+
+button:hover {
+    background: #00b9fc55;
+}
+
+.cpus-prods {
+    display:flex;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+
+.production-line {
+    width: 62rem;
+    border: 1px solid red;
+    border-bottom-right-radius: 1rem;
+}
+
+.production-line input[type="number"] {
+    border: 1px solid red;
+    border-radius: .5rem;
+    min-width: 12rem;
+    background-color: #00000011;
+}
+
+.production-line input[type="number"]:hover {
+    background: #00b9fc55;
+}
+
+
+
+.production-header > * {
+    margin: 0;
+    padding: .5rem;
+    background-color: #0079bc55;
+}
+
+.production-line > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.production-line label {
+    display: inline-block;
+    margin: 0;
+    padding: 1rem;
+    width: 24rem;
+}
+
+.production-line progress {
+    padding: 1rem;
+    height: 4rem;
+    width: 30rem;
+    -webkit-appearance: none;
+}
+
+.production-line progress::-webkit-progress-bar {
+    background-color: #0079bc55;
+}
+
+.production-line progress::-webkit-progress-value {
+    transition: width ease .4s;
+    background-color: #0079bc;
+}
+
+.production-line progress.cpu-total::-webkit-progress-value {
+    transition: width ease 2s;
+}
+

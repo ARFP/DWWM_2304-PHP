@@ -1,0 +1,16 @@
+[
+    { 
+        "id": 1, 
+        "name": "INTEL #1", 
+        "description": "Production line for",
+        "productionTime": 10,
+        "cpuId": 201
+    },
+    { 
+        "id": 2, 
+        "name": "AMD #1", 
+        "description": "Production line for",
+        "productionTime": 12,
+        "cpuId": 102
+    }
+]

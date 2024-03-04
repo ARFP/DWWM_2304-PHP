@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU List</title>
+    <link rel="stylesheet" href="./assets/cpu.css">
+    <script src="./assets/vue.global.js"></script>
+    <script src="./assets/vueCpu.js" type="module"></script>
+</head>
+<body id="app">
+    <header class="header">
+        <h1>List of the {{ nbCpus }} CPUs manufactured On Mulhouse</h1>
+    </header>
+    <main>
+        <section class="cpus">
+            <article class="cpu" v-for="cpu of cpuList">
+                <h2 :class="cpu.brand.toLowerCase()">{{ cpu.fullname }}</h2>
+                <ul>
+                    <li><span>ID :</span> {{ cpu.id }}</li>
+                    <li><span>Frequency :</span> {{ cpu.ghz }} Ghz</li>
+                    <li><span>Price :</span> {{ cpu.price }} €</li>
+                    <li><span>Stock : </span> {{ cpu.stock }}</li>
+                </ul>
+            </article>
+        </section>
+        <section class="stock">
+            <h1>Inventory management</h1>
+            <ol>
+                <li>Select a CPU</li>
+                <li>Edit the number of units in stock</li>
+            </ol>
+            <select v-model="cpuSelect">
+                <option disabled value="null">Select a CPU</option>
+                <option v-for="cpu of cpuList" :value="cpu">{{ cpu.fullname }}</option>
+            </select>
+            <span v-if="cpuSelect != null">
+                <input type="number" v-model="cpuSelect.stock"> unit(s) in stock
+            </span>
+        </section>
+    </main>
+</body>
+</html>
