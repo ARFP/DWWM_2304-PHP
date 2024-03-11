@@ -11,10 +11,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CandidatRepository::class)]
 #[ApiResource(
-    operations: [
+   /* operations: [
         new Get(),
         new GetCollection()
-    ]
+    ]*/
 )]
 class Candidat
 {
