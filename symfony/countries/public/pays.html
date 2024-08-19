@@ -26,12 +26,12 @@
             <tbody>
                 <tr v-for="pays of listePays">
                     <td>
-                        <img :src="'https://flagsapi.com/' + pays.codePays + '/flat/32.png'" :alt="pays.codePays">
+                        <img :src="'https://flagsapi.com/' + pays.country_code + '/flat/32.png'" :alt="pays.country_code">
                     </td>
-                    <td>{{ pays.codePays }}</td>
-                    <td>{{ pays.nomPays }}</td>
+                    <td>{{ pays.country_code }}</td>
+                    <td>{{ pays.country_name }}</td>
                     <td>
-                        <button :data-id="pays.id" @click="ouvrirModal">Détails</button>
+                        <button type="button" :data-id="pays.id" @click="ouvrirModal">Détails</button>
                     </td>
                 </tr>
             </tbody>
@@ -40,18 +40,18 @@
             <article v-if="monPays != null">
                 <button class="fermer" @click="fermerModal">Fermer</button>
                 <header>
-                    <h2>{{ monPays.nomPays }}</h2>
-                    <img :src="'https://flagsapi.com/' + monPays.codePays + '/flat/64.png'" :alt="monPays.codePays">
-                    <p>Code ISO: <span style="font-weight: bold;">{{ monPays.codePays }}</span></p>
+                    <h2>{{ monPays.country_name }}</h2>
+                    <img :src="'https://flagsapi.com/' + monPays.country_code + '/flat/64.png'" :alt="monPays.country_code">
+                    <p>Code ISO: <span style="font-weight: bold;">{{ monPays.country_code }}</span></p>
                 </header>
                 <div class="addVille">
                     <label for="ajouterVille">Ajouter une ville: </label>
-                    <input id="ajouterVille" type="text">
-                    <button>Ajouter</button>
+                    <input id="ajouterVille" v-model="newVille" type="text">
+                    <button @click="ajouterUneVille">Ajouter</button>
                 </div>
                 <h3 style="text-align: left;">{{ monPays.villes.length }} ville(s) enregistrées</h3>
                 <ul>
-                    <li v-for="ville of monPays.villes">{{ ville.nomVille }}</li>
+                    <li v-for="ville of monPays.villes">{{ ville.city_name }}</li>
                 </ul>
             </article>
         </div>

@@ -1,12 +1,16 @@
 class PaysRepository 
 {
-    static baseUrl = "http://localhost:4000/api";
+    static baseUrl = "./assets";
 
     static async getListePays() 
     {
         try {
-            let r = await fetch(PaysRepository.baseUrl + '/pays');
+            let r = await fetch(PaysRepository.baseUrl + '/countries.json');
             let json = await r.json();
+            for(let i = 0; i < json.length; i++) {
+                json[i].id = i+1;
+                json[i].villes = [];
+            }
             return json;
         }
         catch(err) {
@@ -18,12 +22,12 @@ class PaysRepository
     static async getListeVilles()
     {
         try {
-            let r = await fetch(PaysRepository.baseUrl + '/villes');
+            let r = await fetch(PaysRepository.baseUrl + '/cities.json');
             let json = await r.json();
             return json;
         }
         catch(err) {
-            console.warn('Liste des pays indisponible');
+            console.warn('Liste des villes indisponible');
         }
     }
 
