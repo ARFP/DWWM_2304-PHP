@@ -1,0 +1,12 @@
+# Fichier de configuration Apache Pour le répertoire courant
+
+# Activation du module de réécriture d'URL
+RewriteEngine on
+
+# Si la requête n'aboutit pas à un dossier existant
+# Si la requête n'aboutit pas à un fichier existant
+# Rediriger vers index.php
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]

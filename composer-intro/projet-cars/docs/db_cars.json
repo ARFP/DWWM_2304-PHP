@@ -1,0 +1,26 @@
+[
+	{
+		"car_id": 1,
+		"car_brand": "Renault",
+		"car_model": "Clio III",
+		"car_price": 21500
+	},
+	{
+		"car_id": 2,
+		"car_brand": "Renault",
+		"car_model": "Captur",
+		"car_price": 29000
+	},
+	{
+		"car_id": 3,
+		"car_brand": "Dacia",
+		"car_model": "Sandero",
+		"car_price": 19890
+	},
+	{
+		"car_id": 4,
+		"car_brand": "Porsche",
+		"car_model": "718 Cayman",
+		"car_price": 65850
+	}
+]

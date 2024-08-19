@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Production Simulation</title>
+    <link rel="stylesheet" href="./assets/cpu.css">
+    <script src="./assets/vue.global.js"></script>
+    <script src="./assets/vueSimulation.js" type="module"></script>
+</head>
+<body id="app">
+    <header class="header">
+        <h1>CPU Production Simulation</h1>
+    </header>
+
+    <main class="cpus-prods">
+        <article v-for="prod of prods" class="production-line">
+            <header class="production-header" :class="prod.cpu.brand.toLowerCase()">
+                <h2>{{ prod.name }}</h2>
+                <p>{{ prod.description }}</p>
+            </header>
+            <div>
+                <label>Current CPU status</label>
+                <progress class="cpu-current" 
+                    :value="prod.currentStatus.toFixed(1)" 
+                    :max="prod.productionTime"></progress>
+                    <span v-if="prod.interval != null">
+                        {{ (prod.productionTime - prod.currentStatus).toFixed(1) }}
+                    </span>
+            </div>
+            <div>
+                <label>Total produced</label>
+                <progress class="cpu-total" 
+                    :value="prod.totalProduced" 
+                    :max="prod.nbToProduce"></progress>
+                    <span v-if="prod.interval != null">
+                        {{ prod.totalProduced }} / {{ prod.nbToProduce }}
+                    </span>
+            </div>
+            <div>
+                <label>Number of units to produce :</label>
+                <input :disabled="prod.interval != null" v-model="prod.nbToProduce" type="number" min="1" max="100">
+                <button :disabled="prod.interval != null" :data-id="prod.id" @click="startProd">Start</button>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

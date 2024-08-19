@@ -1,0 +1,60 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c7e9c31ec01862117b16b2095d78d417",
+    "packages": [
+        {
+            "name": "fredric74200/php-library",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Frederic74200/php-library.git",
+                "reference": "dfccec2a9038d262bdf0b421624c7fe55fbec96a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Frederic74200/php-library/zipball/dfccec2a9038d262bdf0b421624c7fe55fbec96a",
+                "reference": "dfccec2a9038d262bdf0b421624c7fe55fbec96a",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Frederic74200\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frederic74200",
+                    "email": "120395976+Frederic74200@users.noreply.github.com"
+                }
+            ],
+            "description": "entrainement composer",
+            "support": {
+                "source": "https://github.com/Frederic74200/php-library/tree/main",
+                "issues": "https://github.com/Frederic74200/php-library/issues"
+            },
+            "time": "2024-01-30T13:05:06+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "fredric74200/php-library": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SessionsVote index{% endblock %}
+
+{% block body %}
+    <h1>SessionsVote index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NbTours</th>
+                <th>NbRepresentants</th>
+                <th>Statut</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sessions_vote in sessions_votes %}
+            <tr>
+                <td>{{ sessions_vote.id }}</td>
+                <td>{{ sessions_vote.nbTours }}</td>
+                <td>{{ sessions_vote.nbRepresentants }}</td>
+                <td>{{ sessions_vote.statut }}</td>
+                <td>
+                    <a href="{{ path('app_sessions_vote_show', {'id': sessions_vote.id}) }}">show</a>
+                    <a href="{{ path('app_sessions_vote_edit', {'id': sessions_vote.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sessions_vote_new') }}">Create new</a>
+{% endblock %}

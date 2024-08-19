@@ -1,0 +1,30 @@
+{
+    "name": "mdevoldere/projet-cars",
+    "description": "Une super application qui ne sert à rien",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mdev",
+            "email": "toto@arfp.asso.fr"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Frederic74200/php-library.git"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "fredric74200/php-library": "dev-main"
+    },
+    "require-dev": {
+
+    }
+}
